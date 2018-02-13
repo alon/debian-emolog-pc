@@ -15,4 +15,4 @@ fi
 tar xvzf $SRC
 cd $NAME-$VERSION
 ln -sf ../debian .
-dpkg-buildpackage -sa
+dpkg-buildpackage -sa -uc -us
