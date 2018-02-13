@@ -9,8 +9,7 @@ VERSION=$(dpkg-parsechangelog | grep Version | sed -e 's/Version: //' | sed -e '
 NAME=emolog
 SRC=$NAME-$VERSION.tar.gz
 if [ ! -e $SRC ]; then
-    echo "cd _emolog_; python setup.py sdist"
-    echo "set SRC to the tarball"
+    echo "missing $SRC"
     exit -1
 fi
 tar xvzf $SRC
