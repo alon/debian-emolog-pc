@@ -60,7 +60,7 @@ REMOTE=$REMOTE_USER@$REMOTE_HOST
 scp $SRC $REMOTE:$REMOTE_ROOT
 git push
 ssh $REMOTE "cd $REMOTE_ROOT; git pull --rebase; ./build.sh"
-scp $REMOTE:$REMOTE_ROOT:$DEB .
+scp $REMOTE:$REMOTE_ROOT/$DEB .
 
 if [ ! -e $DEB ]; then
     echo "missing $DEB"
