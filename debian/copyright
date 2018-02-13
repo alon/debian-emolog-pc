@@ -1,0 +1,52 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: emolog
+Source: <url://example.com>
+#
+# Please double check copyright with the licensecheck(1) command.
+
+Files:     PKG-INFO
+           config/local_machine_config.ini.example
+           emolog.egg-info/PKG-INFO
+           emolog.egg-info/SOURCES.txt
+           emolog.egg-info/dependency_links.txt
+           emolog.egg-info/entry_points.txt
+           emolog.egg-info/requires.txt
+           emolog.egg-info/top_level.txt
+           emolog/__init__.py
+           emolog/cython_util.c
+           emolog/decoders.c
+           emolog/dwarf/__init__.py
+           emolog/dwarf/dwarf.py
+           emolog/dwarf/linked_list.out
+           emolog/dwarf/sanity.out
+           emolog/dwarf/test_dwarf.py
+           emolog/dwarf/ti_util.py
+           emolog/emotool/__init__.py
+           emolog/emotool/embedded.py
+           emolog/emotool/main.py
+           emolog/emotool/main_window.py
+           emolog/emotool/ppxl_util.py
+           emolog/fakeembedded.c
+           emolog/lib.py
+           emolog/protocol/emolog_debug.h
+           emolog/protocol/emolog_protocol.cpp
+           emolog/protocol/emolog_protocol.h
+           emolog/util.py
+           emolog_protocol/emolog_protocol.cpp
+           setup.cfg
+           setup.py
+Copyright: __NO_COPYRIGHT_NOR_LICENSE__
+License:   __NO_COPYRIGHT_NOR_LICENSE__
+
+Files:     emolog/emotool/serial2tcp.py
+Copyright: 2002-2003 Chris Liechti <cliechti@gmx.net> redirect data from a TCP/IP connection to a serial port and vice versa
+License:   __UNKNOWN__
+ requires Python 2.2 'cause socket.sendall is used
+
+#----------------------------------------------------------------------------
+# huge files   (skipped):
+#         emolog/cylib.cpp
+
+#----------------------------------------------------------------------------
+# Files marked as NO_LICENSE_TEXT_FOUND may be covered by the following
+# license/copyright files.
