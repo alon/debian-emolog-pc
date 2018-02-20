@@ -11,6 +11,7 @@
 # tested with arm64 (aarch64)
 # this file is
 ROOT=$HOME/machines/debian-arm64
+GIT=../emolog/emolog_pc
 ARCH=arm64
 
 if [ "x$REPO" = "x" ]; then
@@ -33,8 +34,15 @@ if [ ! -e debian ]; then
     exit -1
 fi
 
-# build package if not already there
+GIT_VERSION=$(cd $GIT; python3 -c "import emolog; print('.'.join(map(str, emolog.VERSION)))")
 VERSION=$(dpkg-parsechangelog | grep Version | sed -e 's/Version: //' | sed -e 's/-.*//')
+
+if [ "$GIT_VERSION" != "$VERSION" ]; then
+    echo "please update debian/changelog to $GIT_VERSION"
+    exit -1
+fi
+
+# build package if not already there
 NAME=emolog
 SRC=$NAME-$VERSION.tar.gz
 if [ ! -e $SRC ]; then
@@ -66,5 +74,5 @@ fi
 reprepro -b $REPO includedeb $REPO_DIST $DEB
 (
     cd $REPO/..
-    rsync -avr debian REPO_REMOTE_TARGET
+    rsync -avr debian $REPO_REMOTE_TARGET
 )
