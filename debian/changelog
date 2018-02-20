@@ -1,14 +1,20 @@
+emolog (0.2.2-2) unstable; urgency=low
+
+  * Add python3-pyserial-asyncio dependency
+
+ -- Alon <alon@pobox.com>  Tue, 20 Feb 2018 08:31:07 +0200
+
 emolog (0.2.2-1) unstable; urgency=low
 
   * New upstream.
 
- --  <alon@pobox.com>  Tue, 14 Feb 2018 01:34:07 +0200
+ --  <alon@pobox.com>  Wed, 14 Feb 2018 01:34:07 +0200
 
 emolog (0.2.1-1) unstable; urgency=low
 
   * New upstream.
 
- --  <alon@pobox.com>  Tue, 14 Feb 2018 00:52:07 +0200
+ --  <alon@pobox.com>  Wed, 14 Feb 2018 00:52:07 +0200
 
 emolog (0.2.0-1) unstable; urgency=low
 

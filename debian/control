@@ -2,7 +2,7 @@ Source: emolog
 Section: utils
 Priority: extra
 Maintainer: Alon <alon@pobox.com>
-Build-Depends: debhelper (>=9), dh-python, python3-all, python3-setuptools
+Build-Depends: debhelper (>=9), dh-python, python3-all, python3-setuptools, python3-dev
 Standards-Version: 3.9.8
 Homepage: http://github.com/alon/emolog
 X-Python3-Version: >= 3.6
@@ -10,9 +10,8 @@ X-Python3-Version: >= 3.6
 Package: emolog
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}, ${python3:Depends}
+Depends: ${misc:Depends}, ${python3:Depends}, python3-pyserial-asyncio
 Description: Emolog is a protocol for recording state of embedded targets.
-
  This package contains an implementation of the protocol as a python
  package, and it includes emotool, a tool to use the protocol over
  a serial line based on DWARF debug information to record a CSV file
