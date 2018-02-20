@@ -1,8 +1,17 @@
 #!/bin/bash
+# Build package for arm64
+#
 # Requirements:
-# debootstrap buster in /
+# debootstraped machine in ROOT
 # user with same UID (1000) as current user, called builder
-ROOT=$HOME/machines/debian-buster
+# (those requirements can be automated away)
+#
+# NOTE: architecture is determined by the machine itself
+# it runs using binfmts and the appropriate qemu-user-<arch>
+# tested with arm64 (aarch64)
+# this file is
+ROOT=$HOME/machines/debian-arm64
+ARCH=arm64
 
 if [ "x$REPO" = "x" ]; then
     echo "export REPO=path/to/reprepro repository"
@@ -43,9 +52,11 @@ if [ ! -e $SRC ]; then
 fi
 
 PKG=$(pwd)
-sudo systemd-nspawn -D $ROOT --bind=$PKG:/home/builder/debian-emolog -u builder --chdir /home/builder/debian-emolog ./build.sh
+NSPAWN_ARM64_ARGS="--bind /usr/bin/qemu-aarch64 --bind /lib64"
+sudo systemd-nspawn ${NSPAWN_ARM64_ARGS} -D $ROOT --bind $PKG:/home/builder/debian-build -u builder --chdir /home/builder/debian-build ./build.sh
 
-DEB=${NAME}_${VERSION}-1_all.deb
+VERSION_EPOCH=$(dpkg-parsechangelog | grep Version | sed -e 's/Version: //')
+DEB=${NAME}_${VERSION_EPOCH}_all.deb # TODO: why does this not say ${ARCH}? it includes c compiled architecture specific shared objects
 
 if [ ! -e $DEB ]; then
     echo "missing $DEB"
