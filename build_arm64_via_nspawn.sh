@@ -10,7 +10,7 @@
 # it runs using binfmts and the appropriate qemu-user-<arch>
 # tested with arm64 (aarch64)
 # this file is
-ROOT=$HOME/machines/debian-arm64
+ROOT=/images/machines/debian-arm64
 GIT=../emolog/emolog_pc
 ARCH=arm64
 
