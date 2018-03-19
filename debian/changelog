@@ -1,3 +1,11 @@
+emolog (0.2.6-1) unstable; urgency=low
+
+  * New upstream.
+  * Explicitly write header lines to allow external CSV writer factory to
+    produce multiple CSV files.
+
+ -- Alon <alon@pobox.com>  Mon, 19 Mar 2018 07:23:00 +0200
+
 emolog (0.2.5-1) unstable; urgency=low
 
   * New upstream.
